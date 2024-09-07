@@ -1,0 +1,7 @@
+# Put your code here
+# Step1: all the app.py, Dockerfile and requirement are given
+#         the app.py code generate a web page using numpy and flash requirement
+# Step2: write a docker-compose file 
+#         1. create a service named "web"
+#         2. build the image from Dockerfile given
+#         3. expose port 80 to 4000

@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  myapp5:
+    build: .
+    ports:
+      - '8080:80'
+
+# This is comment, run this in command line
+# docker build -t mybuild5 .
+# docker images
+# docker run --name myapp5 --rm -p 8080:80 mybuild5
+# http://localhost:8080/

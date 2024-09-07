@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  myapp2:
+    build: .
+    stdin_open: true
+    tty: true
+
+
+# docker run --name myapp2 -it mybuild2
+
+# Instruction:
+# after docker-compose up, run docker ps -a check container is up and running
+# then run docker attach <container_name>

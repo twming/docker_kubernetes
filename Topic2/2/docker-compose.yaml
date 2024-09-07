@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  myapp6:
+    build: .
+    #image: twming/jupyterdocker
+    ports:
+      - '8888:8888'
+    volumes:
+      - mydata:/app
+      - ./result:/result
+
+volumes:
+  mydata:
+
+
+# docker run --name myapp6 --rm -p 8888:8888 -v olympic_app:/app mybuild6
