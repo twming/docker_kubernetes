@@ -32,4 +32,5 @@ volumes:
   wordpress_data: 
 
 # Instruction:
+# !!!! Remember to check the db host !!!!
 # docker-compose up
