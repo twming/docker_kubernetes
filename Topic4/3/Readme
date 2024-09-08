@@ -1,0 +1,13 @@
+Run the deployment.
+kubectl apply -f all-in-one-deployment.yaml
+minikube service frontend-service
+
+Query the pod by label.
+kubectl get pods --selector app=tasks
+kubectl get pods --show-labels
+
+Check the environment variable in a pod.
+kubectl exec –it <pod_name> -- env
+
+To scale up the pod
+kubectl scale <pod_name> --replicas=<no>

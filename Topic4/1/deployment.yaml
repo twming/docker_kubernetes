@@ -31,12 +31,7 @@ spec:
         - name: myapp
           image: twming/myapp-update
 
-# (Terminal 1)
 # kubectl apply -f deployment.yaml
-# minikube service myservice
-
-# (Terminal 2)
-# kubectl set image deployment myapp myapp=twming/myapp-update:1
-# kubectl rollout status deployment myapp
-# kubectl rollout undo deployment myapp
-# kubectl rollout history deployment myapp --revision=1
+# kubectl scale deployment myapp --replicas=3
+# kubectl scale deployment myapp --replicas=1
+# kubectl delete -f deployment.yaml

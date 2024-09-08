@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp-fail
-  labels: 
-    app: myapp-fail
+  name: demo
 spec:
   containers:
-  - name: myapp-fail
-    image: twming/myapp_fail
-    ports:
-    - containerPort: 8080
+  - name: testpod
+    image: alpine:3.5
+    command: ["ping", "8.8.8.8"]
 
-# (Terminal 1)
 # kubectl apply -f pod.yaml
-# kubectl expose pod myapp-fail --port=8080
-# minikube service myapp-fail
+# kubectl logs pod/demo
+# kubectl delete -f pod.yaml
+
+# change the ip to 127.0.0.1, save the pod.yaml
+# kubectl apply -f pod.yaml
+# kubectl logs pod/demo

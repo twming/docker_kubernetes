@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  myapp6:
+    image: twming/myapp_fail
+    ports:
+      - '8080:8080'

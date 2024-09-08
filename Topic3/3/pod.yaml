@@ -1,20 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: myapp
-  labels:
-    group: myapp
+  name: myapp-fail
+  labels: 
+    app: myapp-fail
 spec:
-  selector:
-    matchLabels:
-      app: myapp
-  template: 
-    metadata: 
-      labels: 
-        app: myapp
-    spec:
-      containers:
-        - name: myapp
-          image: twming/myapp_fail
+  containers:
+  - name: myapp-fail
+    image: twming/myapp_fail
+    ports:
+    - containerPort: 8080
 
+# (Terminal 1)
 # kubectl apply -f pod.yaml
+# kubectl expose pod myapp-fail --port=8080
+# minikube service myapp-fail
