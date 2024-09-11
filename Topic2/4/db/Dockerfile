@@ -6,4 +6,8 @@ ENV MYSQL_USER="wordpress"
 ENV MYSQL_PASSWORD="wordpress"
 
 # docker build -t mysql_build .
+
+# --> Run without mynetwork
+# docker run --name mysql_app --rm mysql_build
+# --> Run with mynetwork
 # docker run --name mysql_app --rm --network mynetwork mysql_build
