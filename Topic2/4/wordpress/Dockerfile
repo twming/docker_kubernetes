@@ -10,4 +10,8 @@ ENV WORDPRESS_DB_NAME="wordpress"
 EXPOSE 80
 
 # docker build -t mywordpress_build .
+
+# --> Run without mynetwork
+# docker run --name mywordpress_app --rm -p 8080:80 mywordpress_build 
+# --> Run with mynetwork, docker network create mynetwork
 # docker run --name mywordpress_app --rm --network mynetwork -p 8080:80 mywordpress_build
