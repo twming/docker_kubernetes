@@ -1,9 +1,64 @@
-Step1: Install Docker on computer
+-----------------------
+|  For Windows Users  |
+-----------------------
+# Step1: Install Docker on computer
 https://www.docker.com/
 
-Step2: Install VS Code
+# Step2: Install VS Code
 Goto Microsoft Store -> Visual Studio Code
 
+# Step3: Install Chocolatey, Go to Powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+# Step4: Install Kubernetes-cli
+choco install kubernetes-cli
+# Validate Kubernetes-cli
+kubectl version --client
+
+# Step5: Install Minikube
+choco install minikube
+
+# Step5: Start/Stop/Delete Minikube
+minikube start
+minikube stop
+minikube delete
 
 
+---------------------
+|  For Linux Users  |
+---------------------
+# Step1: Install Docker on computer
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Step2: Install VS Code
+sudo snap install code --classic
+
+# Step3: Install Kubernetes-cli
+cd ~
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+# Validate kubectl
+sudo kubectl version --client
+
+# Step4: Install Minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+
+# Step5: Start/Stop/Delete Minikube (sudo rm /tmp/juju-* -rf)
+sudo minikube start --force
+sudo minikube stop
+sudo rm /tmp/juju-* -rf
+sudo minikube delete --all
