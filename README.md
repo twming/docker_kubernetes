@@ -57,6 +57,8 @@ Kubernetes manage objects:
 - deployments
 - services
 - volumes
+Pods / Deployments
+----
 ```
 kubectl create deployment first-app --image=twming/kube01
 kubectl delete deployment first-app
@@ -64,6 +66,8 @@ kubectl get pods
 kubectl expose deployment first-app --port=8080
 kubectl expose deployment first-app --type=ClusterIP/NodePort/LoadBalancer --port=8080
 ```
+Service
+-----
 Port Type:
 - ClusterIP : only access by internal node
 - NodePort : excess from outside cluster
@@ -75,19 +79,22 @@ minikube service first-app
 ```
 Scale
 -----
+```
 kubectl scale deployment/first-app --replicas=3
-
+```
 Update
 ------
+```
 kubectl set image deployment/first-app kube01=twming/kube01:1
 kubectl rollout status deployment/first-app
-
+```
 Rollback
 --------
+```
 kubectl rollout undo deployment/first-app
 kubectl rollout history deployment/first-app --revision=2
 kubectl rollout undo deployment/first-app --to-revision=1
-
+```
 
 
 
