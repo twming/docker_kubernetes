@@ -3,13 +3,12 @@
 # (Terminal 1)
 # kubectl apply -f pod.yaml
 # kubectl get pods
-# kubectl expose pod nginx --port=80
+# kubectl expose pod myanalysis --port=8888
 # kubectl get all
-# minikube service nginx
-
+# minikube service myanalysis
 
 # kubectl delete -f pod.yaml
-# kubectl delete service nginx
+# kubectl delete service myanalysis
 # kubectl get all
 
 # (Terminal 2)
