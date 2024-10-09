@@ -1,13 +1,50 @@
 # Dockerfile Template
 ```
+FROM python
+LABEL description="Jupyter notebook for Docker learning."
+WORKDIR /app  
+ADD /app /app
+RUN pip install numpy pandas seaborn jupyter
+EXPOSE 8888
+VOLUME /app  # anonymous volume
+ENV NAME="Docker Learner"
+CMD echo "Hello, ${NAME}. Welcome to learn docker"
+CMD ["jupyter","notebook","--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
 ```
 
 # Docker Compose YAML Template
 ```
+version: '3.8'
+services:
+  myapp:
+    build: .
+    # image: myapp
+    ports:
+      - "8080:80"
+    volumes:
+      - named_vol:/var/www/html
+    environment:
+      USER: guest
+    stdin_open: true
+    tty: true
+volumes:
+  named_vol: 
 ```
 
 # Kubernetes Deployment YAML Template
 ```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-fail
+  labels: 
+    app: myapp-fail
+spec:
+  containers:
+  - name: myapp-fail
+    image: twming/myapp_fail
+    ports:
+    - containerPort: 8080
 ```
 
 # Kubernetes / Minikube Installation
