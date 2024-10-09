@@ -53,10 +53,10 @@ minikube config set memory 9001
 ```
 # Kubernetes Objects and Commands
 Kubernetes manage objects:
--pods
--deployments
--services
--volumes
+- pods
+- deployments
+- services
+- volumes
 ```
 kubectl create deployment first-app --image=twming/kube01
 kubectl delete deployment first-app
@@ -65,9 +65,9 @@ kubectl expose deployment first-app --port=8080
 kubectl expose deployment first-app --type=ClusterIP/NodePort/LoadBalancer --port=8080
 ```
 Port Type:
-ClusterIP - only access by internal node
-NodePort - excess from outside cluster
-LoadBalancer - allow load distribution
+- ClusterIP : only access by internal node
+- NodePort : excess from outside cluster
+- LoadBalancer : allow load distribution
 ```
 kubectl expose deployment first-app --type=LoadBalancer --port=8080
 kubectl get service
@@ -80,13 +80,11 @@ kubectl scale deployment/first-app --replicas=3
 Update
 ------
 kubectl set image deployment/first-app kube01=twming/kube01:1
-
 kubectl rollout status deployment/first-app
 
-rollback
+Rollback
 --------
 kubectl rollout undo deployment/first-app
-
 kubectl rollout history deployment/first-app --revision=2
 kubectl rollout undo deployment/first-app --to-revision=1
 
