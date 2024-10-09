@@ -1,4 +1,40 @@
-# Installation 
+# Kubernetes / Minikube Installation
+For window users, please install chololaty, before install Kubernetes-cli and minikube using choco install command. Go to Powershell command line:
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+Install Kubernetes-cli
+```
+choco install kubernetes-cli
+```
+Check kubernetes-cli version
+```
+kubectl version --client
+```
+Install Minikube
+```
+choco install minikube
+```
+Start Minikube
+```
+minikube start
+```
+Stop Minikube
+```
+minikube stop
+```
+Minikube Dashboard
+```
+minikube dashboard
+```
+Delete all Minikube cluster
+```
+minikube delete --all
+```
+Change the default memory limit (requires a restart):
+```
+minikube config set memory 9001
+```
 ### docker compose template
 ```
 version: "3.8"
