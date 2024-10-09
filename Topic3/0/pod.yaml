@@ -1,0 +1,16 @@
+# TODO : enter your YAML here, to convert to JSON object --> 
+
+# (Terminal 1)
+# kubectl apply -f pod.yaml
+# kubectl get pods
+# kubectl expose pod nginx --port=80
+# kubectl get all
+# minikube service nginx
+
+
+# kubectl delete -f pod.yaml
+# kubectl delete service nginx
+# kubectl get all
+
+# (Terminal 2)
+# minikube dashboard
