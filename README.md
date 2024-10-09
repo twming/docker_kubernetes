@@ -52,6 +52,12 @@ Change the default memory limit (requires a restart):
 minikube config set memory 9001
 ```
 # Kubernetes Objects and Commands
+Run
+---
+```
+kubectl run nginx --image nginx
+kubectl run nginx --image ngix --port=80 --labels="app=hazelcast,env=prod" --env="DNS_DOMAIN=cluster" --restart=Never
+```
 Kubernetes manage objects:
 - pods
 - deployments
