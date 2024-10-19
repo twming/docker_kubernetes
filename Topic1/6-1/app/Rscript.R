@@ -1,4 +1,3 @@
-install.packages('ggplot2')
 require(ggplot2)
 data=read.csv("olympics.csv")
 data_gold=data[data$Medal=='Gold',]
