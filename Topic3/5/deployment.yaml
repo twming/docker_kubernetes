@@ -9,7 +9,7 @@ spec:
     - protocol: 'TCP'
       port: 80
       targetPort: 8080
-  type: NodePort
+  type: LoadBalancer # service port type is LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -21,13 +21,14 @@ spec:
   selector:
     matchLabels:
       app: myapp
+  replicas: 3 # scale up the pods to 3
   template: 
     metadata: 
       labels: 
         app: myapp
     spec:
       containers:
-        - name: myapp-container
+        - name: myapp
           image: twming/myapp_fail
 
 # deployment with pod and service

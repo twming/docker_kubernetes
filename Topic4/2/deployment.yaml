@@ -41,4 +41,4 @@ spec:
 # kubectl set image deployment myapp myapp=twming/myapp-update:1
 # kubectl rollout status deployment myapp
 # kubectl rollout undo deployment myapp
-# kubectl rollout history deployment myapp --revision=1
+
